@@ -1,0 +1,162 @@
+\documentclass{article}
+\usepackage{amssymb, amsmath, fullpage}
+
+\parskip 6pt
+\parindent 0pt
+
+\title{Writing Assignment 2 in \LaTeX}
+\author{Alex Holland V00 }
+\date{November 16, 2020}
+
+\begin{document}
+
+\maketitle
+
+\bigskip
+{\bf Question 1} Let ${a_0},{a_1},...$ be the sequence recursively defined by\\
+\begin{equation*}
+\begin{split}
+   {a_0}=4,{a_1}=7, \text{and } {a_n}={a_n}{_-}{_1}+6{a_n}{_-}{_2} \text{ for } n \geq 2. 
+\end{split}
+\end{equation*}
+ prove that, the smallest positive integer ${n_0}$ such that $n!>n^3$ for all $n \geq 0$.
+
+\bigskip
+\underline{Basis:} By definition, ${a_0}=4={(-2)^0}+{3^1}$, ${a_1}=7={(-2)^1}+{3^2}$, and ${a_2}=31={(-2)^2}+{3^3}$ 
+Therefore, the statement that ${a_n={(-2)^n}+{3^n}{^+}{^1}}$ is true when n = 0, 1 or 2.
+
+\smallskip
+\underline{Induction Hypothesis:} Suppose there is an integer $k \geq 2$ such that ${a_n={(-2)^n}+{3^n}{^+}{^1}}$ for n = 0, 1,...,k.
+
+\smallskip
+\underline{Induction Step:} We want to show that the statement is true when n=k+1, 
+that is that ${a_k}{_+}{_1}={(-2)^k}{^+}{^1}+{3^k}{^+}{^2}$.
+Look at ${a_k}{_+}{_1}$. Since $k \geq 2$ we know that $k+1 \geq 3$ and so.
+
+\begin{equation*}
+\begin{split}
+     {a_k}{_+}{_1} & ={a_k}+6{a_k}{_+}{_1}\\
+    & ={(-2)^k}+{3^k}{^+}{^1}+6({(-2)^k}{^-}{^1}+{3^k}) 
+    \text{ (since } a_k=(-2^k)+{3^k}{^+}{^1} \text{ by the induction Hypothesis})\\
+    & ={(-2)^k}+{3^k}{^+}{^1}+6{(-2)^k}{^-}{^1}+6{(3)^k}\\
+    & ={(-2)^k}+(1+6{(-2)^-}{^1}+{3^k}(3+6(1))\\
+    & ={(-2)^k}(-2)+{3^k}(9)\\
+    & ={(-2)^k}{^+}{^1}+{3^k}{3^2}\\
+    & = {(-3)^k}{^+}{^1}+{3^k}{^+}{^2}
+\end{split}
+\end{equation*}
+
+\smallskip
+\underline{Conclusion:} By strong Principles of Mathematical Induction, ${a_n}={(-2)^n}+{3^n}{^+}{^1}$ for all $n \geq 0$. $\Box$
+
+\bigskip
+\bigskip
+{\bf Question 2}
+Find, with proof, the smallest positive integer ${n_0}$ such that ${n!>n^3}$ 
+for all ${n \geq {n_0}}$.
+
+\smallskip
+From the equation $n! \geq {n^3}$ for all $n \geq {n_0}$, states that there must be some positive integer ${n_0}$ such that any integer n that is greater than or equal to ${n_0}$ there will be n! which will always be greater than ${n^3}$. We can first start proving this by finding values of n! and ${n^3}$ for the first few positive integers at increments of one.
+
+\smallskip
+\begin{align*}
+n! && n^3\\
+1!=1 && 1^3=1\\
+2!=2 && 2^3=8\\
+3!=6 && 3^3=27\\
+4!=24 && 4^3=64\\
+5!=120 && 5^3=125\\
+6!=720 && 6^3=216\\
+\end{align*}
+
+It can be observed that 6 is the first positive integer at which $n!>n^3$. We must now prove that for all $n>6$ the statement is true.
+
+\smallskip
+\underline{Basis:} When ${n_0}=6$ we have $n!=6!=720$ and ${n^3}={6^3}=216$. Hence the statement to be proved is true when  ${n_0}=6$. Let the statement P(n) be defined as $P(n): n!>n^3$ for $n \geq 6$.
+
+\smallskip
+\underline{induction Hypothesis:} Suppose there exists and integer $P(k): k! \geq {k^3}$.
+
+\smallskip
+\underline{Induction Step:} We need to prove that P(k+1) is true, we have
+\begin{equation*}
+\begin{split}
+    (k+1)! &= (k+1)k!>(k+1)k^3 \text{ (Since $k!>k^3$)}\\
+    (k+1)! & >(k+1)k^3\\
+    \text{now } k^3 & >(k+1)^2, k \geq 3\\
+    (k+1)! & >(k+1)\cdot(k+1)^2\\
+    (k+1)! & >(k+1)^3
+\end{split}
+\end{equation*}
+
+Thus, P(k+1) is true, whenever P(k) is true
+
+\smallskip
+\underline{Conclusion:} Therefore, by Principle of Mathematical Induction $n! \geq {n^3}$ for all $n \geq 6$ and so the smallest positive integer ${n_0}$ is 6.
+$\Box$
+
+\bigskip
+\bigskip
+{\bf Question 3}
+let ${t_0},{t_1},...$ be the sequence recursively defined by ${t_0}=5$, and 
+${t_n}={t_n}{_-}{_1}+2n+5$ for $n \geq 1$. Compute ${t_1},{t_2},{t_3} \text{ and } {t_n}={t_n}{_-}{_1}+2n+5$ 
+for $n \geq 1$. Compute ${t_1},{t_2},{t_3} \text{ and } {t_4}$ (leave your answers as sums), and then use your work to conjecture a formula for ${t_n},n \geq 0$. Then, prove by induction that your conjectured formula holds for all $n \geq 0$.
+
+\smallskip
+We first use computation without simplification to look for a pattern that we can conjecture a formula.
+\begin{equation*}
+\begin{split}
+   {t_0} & =5\\
+   {t_1} & ={t_0}+2\cdot1+5=5+2\cdot1+5\\
+   {t_2} & ={t_1}+2\cdot1+5=5+2\cdot1+5+2\cdot2+5\\
+   {t_3} & ={t_2}+2\cdot1+5=5+2\cdot1+5+2\cdot2+5+2\cdot3+5\\
+   {t_4} & ={t_3}+2\cdot1+5=5+2\cdot1+5+2\cdot2+5+2\cdot3+5+2\cdot4+5\\
+         & =5+2+5+4+5+6+5+8+5\\
+\end{split}
+\end{equation*}
+
+\bigskip
+\bigskip
+\bigskip
+At this point is seems reasonable to conjecture that 
+\smallskip
+\begin{equation*}
+\begin{split}
+    {t_n} & =5(n+1)+(2+4+6+8+...+2n)\\
+    {t_n} & =5(n+1)+2(1+2+3+6+...+n)\\
+\end{split}
+\end{equation*}
+
+for all $n \geq 0$. We know that the bracketed expression is a known sum, so our conjecture can be written as ${t_n}=5(n+1)+2n(n+1)/2=5(n+1)+n(n+1)=5n+5+n^2+n=n^2+6n+5$ 
+for all $n \geq 0$.
+
+\smallskip
+We can now prove the conjecture by induction. The statement to prove is $n^2+6n+5$ for all $n \geq 0$.
+
+
+\smallskip
+\underline{Basis:} When $n=0$ we have ${a_n}={a_0}=5$ and $n^2+6n+5=0^2+6(0)+5=5$, Thus the statement is true when $n=0$. 
+
+\smallskip
+\underline{Induction Hypothesis:} Suppose there is an integer $n \geq 0$ such that ${t_k}=k^2+6k+5$.
+
+\smallskip
+\underline{Induction Step:} We want to show that 
+${t_k}{_+}{_1}=(k+1)(k+1)+6(k+1)+5=k^2+2k+1+6k+6+5=k^2+8k+12$.
+Look at ${t_k}{_+}{_1}$. Since $k+1 \geq 1$, we can use the recursion to write
+
+\begin{equation*}
+\begin{split}
+    {t_k}{_+}{_1} & ={t_k}+2(k+1)+5\\
+    & = {k^2}+6k+5+2(k+1)+5 \text{ (since } t_k=k^2+6k+5 \text{by the Induction Hypothesis})\\
+    & = {k^2}+6k+5+2k+2+5\\
+    & = {k^2}+8k+12\\
+\end{split}
+\end{equation*}
+as wanted.
+
+\smallskip
+\underline{Conclusion:} Therefore, by Principle of Mathematical Induction ${t_n}=n^2+6n+5$ for all $n \geq 0$.
+$\Box$
+
+\end{document}
